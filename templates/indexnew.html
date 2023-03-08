@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Predict High and Low Prices</title>
+</head>
+<body>
+    <form method="post" action="{{ url_for('predict') }}">
+        <label for="datetime">Date and time:</label>
+        <input type="text" id="datetime" name="datetime" pattern="\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2}:\d{2}\.\d{3}" required>
+        <button type="submit">Predict</button>
+    </form>
+    {% if high_price is defined %}
+    <p>High price: {{ high_price }}</p>
+    <p>Low price: {{ low_price }}</p>
+    {% endif %}
+</body>
+</html>

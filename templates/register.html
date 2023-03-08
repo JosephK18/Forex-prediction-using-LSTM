@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Register</title>
+    <style>
+      body {
+        background-color: lightgray;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        color: blue;
+        margin-top: 50px;
+      }
+
+      form {
+        margin-top: 100px;
+        text-align: left;
+        display: inline-block;
+        padding: 50px;
+        background-color: white;
+        border-radius: 10px;
+      }
+
+      label, input {
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      input[type="text"], input[type="password"], input[type="email"] {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid lightgray;
+      }
+
+      input[type="submit"] {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+        border-color: blue;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Registration With us to get started</h1>
+    <form action="register" method="POST">
+      <label for="Dusername">Username:</label>
+      <input type="text" id="Dusername" name="Dusername">
+      <br>
+      <label for="Dpassword">Password:</label>
+      <input type="password" id="Dpassword" name="Dpassword">
+      <br>
+      <label for="Emailuser">Email:</label>
+      <input type="email" id="Emailuser" name="Emailuser">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <script>
+      const inputs = document.querySelectorAll("input");
+
+      inputs.forEach((input) => {
+        input.addEventListener("focus", function() {
+          this.style.backgroundColor = "lightblue";
+        });
+
+        input.addEventListener("blur", function() {
+          this.style.backgroundColor = "white";
+        });
+      });
+    </script>
+  </body>
+</html>

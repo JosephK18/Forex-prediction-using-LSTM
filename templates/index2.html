@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Predict High and Low Prices</title>
+</head>
+<body>
+    <form method="post" action="{{ url_for('predict') }}">
+        <label for="datetime">Date and time:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <button type="submit">Predict</button>
+    </form>
+    {% if high_price is defined %}
+    <p>High price: {{ high_price }}</p>
+    <p>Low price: {{ low_price }}</p>
+    {% endif %}
+
+    <script>
+        const inputElement = document.getElementById("datetime");
+        inputElement.addEventListener("change", function() {
+          const datetimeValue = new Date(inputElement.value);
+          const formattedDatetime = datetimeValue.toLocaleString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            fractionalSecondDigits: 3,
+          }).replace(/[\s,:]/g, ".");
+          inputElement.value = formattedDatetime;
+        });
+    </script>
+</body>
+</html>
